@@ -14,10 +14,13 @@ The code should be fairly self-explanatory. Let me know if you want me to change
 Class ChatServer:
 
   acceptConnection: Should run this after intializing client to accept their connection
+  
   send: Sends a sequence of bytes to a client index(0 = client A; 1 = client B etc)
+  
   receive: Receive a sequence of bytes from a given client index
 
 Class ChatClient:
 
   send: Sends a sequence of bytes from the client to the server
+  
   receive: Receive a sequence of bytes from the server
