@@ -17,7 +17,7 @@ The code should be fairly self-explanatory. Let me know if you want me to change
 
 Class ChatServer:
 
-  acceptConnection: Should run this after intializing client to accept their connection
+  acceptConnection: You must run this function after intializing a client to accept their connection.
   
   send: Sends a sequence of bytes to a client index(0 = client A; 1 = client B etc)
   
