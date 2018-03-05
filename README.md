@@ -9,6 +9,8 @@ port if we would like it to work on different machines.
 
 Client index will be assigned in the order that chat clients connect. For example, the first client to connect will be Client A and will have a client index of 0. The second client will be Client B and will have a client index of 1, etc...
 
+All connections are only implemented in TCP for the time being
+
 The code should be fairly self-explanatory. Let me know if you want me to change anything/don't understand the code.
 
 Class ChatServer:
