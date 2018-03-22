@@ -11,7 +11,7 @@ print("instantiated server")
 clientA = ChatClient("Client A")
 #for testing
 print("instantiated clientA")
-server.acceptConnection()
+server.acceptConnection() #Should be done automatically done later on
 #for testing
 print("accepted A connection...")
 clientB = ChatClient("Client B")
