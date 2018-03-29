@@ -10,13 +10,12 @@ class ChatClient:
         # now connect to the web server on port serverPort - an atypical connection port for testing
         self.clientSocket.connect((self.serverAddress, self.serverPort))
         self.clientName = name
-    
+
     # Data must be converted to bytes before sending; sends to server
     def send(self, data):
-        self.clientSocket.send(data)
+        self.clientSocket.send(data.encode()) #UPDATE: Function automatically encodes
         return
 
     # Returns a byte that was received from the server
     def receive(self):
-        tmpVar = self.clientSocket.recv(2048)
-        return tmpVar
+        return self.clientSocket.recv(2048)
