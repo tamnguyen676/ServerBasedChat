@@ -24,6 +24,7 @@ class ChatServer:
     # Assumes client exists
     def send(self, data, client_socket):
         client_socket.send(data.encode())
+        print('SENT')
 
     # Receive something from a client index and returns as bytes
     # Assumes client exists
@@ -36,19 +37,7 @@ def connection(server,client_socket):
     # Outer loop waits for HELLO command only
     while True:
         msg = server.receive(client_socket) # Message received from the program
-        clientID = None
-
-        if msg.split()[0] == 'HELLO':   # Establishes initial connection when the HELLO message is received
-            clientID = msg.split()[1]
-            if clientID in server.onlineSockets.keys():    #To-do: Make sure this doesn't crash program
-                server.send('CONNECTED', client_socket) # Send CONNECTED response to client
-
-                server.onlineSockets[clientID] = client_socket  # Keeps a dictionary of sockets that are online
-                print('Successfully connected to client {0}'.format(clientID))
-            else:
-                server.send('DECLINED', client_socket)
-                print('Declined client with id {0}'.format(clientID))
-                break
+        clientID = waitForHello(client_socket, msg, server)
 
         # Waits for CHAT_REQUEST command (should wait for others too)
         while True:
@@ -57,10 +46,34 @@ def connection(server,client_socket):
                 destID = msg.split()[1] # Stores id of Client B
                 if destID in server.onlineSockets.keys() and server.onlineSockets[destID] is not None: #If client exists and is online
                     server.send('CHAT_STARTED({0},{1})'.format(getSessionID(clientID, destID), destID), client_socket)
-                    print('Chat initiated with client {0}'.format(destID))
+                    print('Client {0} initiated chat with client {1}'.format(clientID,destID))
+
+                    while True:
+                        msg = server.receive(client_socket)
+
+                        if msg != "":
+                            server.send(msg,server.onlineSockets[destID])
+
                 else:
                     server.send('UNREACHABLE {0}'.format(destID),client_socket)
                     print('Client {0} is not connected.'.format(destID))
+
+
+def waitForHello(client_socket, msg, server):
+    if msg.split()[0] == 'HELLO':  # Establishes initial connection when the HELLO message is received
+        clientID = msg.split()[1]
+        if clientID in server.onlineSockets.keys():  # To-do: Make sure this doesn't crash program
+            server.send('CONNECTED', client_socket)  # Send CONNECTED response to client
+
+            server.onlineSockets[clientID] = client_socket  # Keeps a dictionary of sockets that are online
+            print('Successfully connected to client {0}'.format(clientID))
+            return clientID
+        else:
+            server.send('DECLINED', client_socket)
+            print('Declined client with id {0}'.format(clientID))
+
+
+
 
 # Uniform way of generating session ID's.
 # For example, client 1 connected to client 2 and client 2 to client 1 both result in id "1to2"
