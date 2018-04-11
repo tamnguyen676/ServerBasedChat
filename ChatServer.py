@@ -24,7 +24,6 @@ class ChatServer:
     # Assumes client exists
     def send(self, data, client_socket):
         client_socket.send(data.encode())
-        print('SENT')
 
     # Receive something from a client index and returns as bytes
     # Assumes client exists
@@ -45,17 +44,23 @@ def connection(server,client_socket):
             if msg.split()[0] == 'CHAT_REQUEST':
                 destID = msg.split()[1] # Stores id of Client B
                 if destID in server.onlineSockets.keys() and server.onlineSockets[destID] is not None: #If client exists and is online
+                    destSocket = server.onlineSockets[destID]
                     server.send('CHAT_STARTED({0},{1})'.format(getSessionID(clientID, destID), destID), client_socket)
+                    server.send('CHAT_REQUEST({0})'.format(clientID), destSocket)
                     print('Client {0} initiated chat with client {1}'.format(clientID,destID))
 
-                    while True:
-                        msg = server.receive(client_socket)
+                    b_to_a_forwarding_thread = threading.Thread(target=b_to_a_forwarding,
+                                                                args=(client_socket, destSocket))
+                    b_to_a_forwarding_thread.start()
 
-                        if msg != "":
-                            server.send(msg,server.onlineSockets[destID])
+                    while True:
+                        msgFromA = server.receive(client_socket)
+
+                        if msgFromA != "":
+                            server.send(msgFromA, destSocket)
 
                 else:
-                    server.send('UNREACHABLE {0}'.format(destID),client_socket)
+                    server.send('UNREACHABLE {0}'.format(destID), client_socket)
                     print('Client {0} is not connected.'.format(destID))
 
 
@@ -72,8 +77,14 @@ def waitForHello(client_socket, msg, server):
             server.send('DECLINED', client_socket)
             print('Declined client with id {0}'.format(clientID))
 
+def b_to_a_forwarding(client_socket,destSocket):
+    while True:
+        print('Waiting for B')
+        msgFromB = server.receive(destSocket)
+        print(msgFromB)
 
-
+        if msgFromB != "":
+            server.send(msgFromB, client_socket)
 
 # Uniform way of generating session ID's.
 # For example, client 1 connected to client 2 and client 2 to client 1 both result in id "1to2"
