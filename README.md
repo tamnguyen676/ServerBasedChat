@@ -28,3 +28,17 @@ Class ChatClient:
   send: Sends a sequence of bytes from the client to the server
   
   receive: Receive a sequence of bytes from the server
+
+
+***************HOW TO USE THE CODE***************
+To start the server run the ChatServer.py script.
+
+For each client, run a Client.py script
+
+For each Client script:
+1) Enter log on [CLIENT_ID]
+2) Indicate whether you would like to send a chat request or receive a chat request by entering: "yes" or "no"
+3) If you would like to send a chat request enter chat [client ID of the person you want to chat with]
+4) Once you enter chat, chat away!
+5) When you're done enter Log off
+6) You can then log back on and proceed from step 2
