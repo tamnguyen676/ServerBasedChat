@@ -136,22 +136,24 @@ def connection(server,clientSocket):
             print('Waiting for A')
             print(msgFromA)
             if msgFromA != "":
+                # Log the messages before sending
                 sqlCommand = "INSERT INTO log VALUES (\"{0}\",{1},\"{2}\")".format(getSessionID(clientID,destID),clientID,
                                                                            msgFromA)
                 cursor.execute(sqlCommand)
                 db.commit()
+
                 server.send(msgFromA, destSocket)
             #Handle shutting down session here
     elif msg.split()[0] == "HISTORY_REQ":
-        destID = msg.split("(")[1][:-1]
-        sessionID = getSessionID(clientID,destID)
+        destID = msg.split("(")[1][:-1] # The ID of the chat you want to see a history of
+        sessionID = getSessionID(clientID,destID) # Session ID of the chat
         sqlCommand = 'SELECT source,message FROM log WHERE sessionID=\'{0}\''.format(sessionID)
         cursor.execute(sqlCommand)
-        log = cursor.fetchall()
+        log = cursor.fetchall() #Contains a list of chat info
 
         for record in log:
-            sendingID = record[0]
-            message = record[1]
+            sendingID = record[0] # The source of the message
+            message = record[1] # The contents of the message
             server.send('HISTORY_RESP ({0},{1})'.format(sendingID,message),clientSocket)
 
 
@@ -222,6 +224,7 @@ def getSessionID(ses1,ses2):
 
 # Main function, it starts the thread that receives messages, then blocks with the acceptConnection() method
 if __name__ == '__main__':
+    #Creates the database and table
     db = sqlite3.connect("chatHistory.db",check_same_thread=False)
     cursor = db.cursor()
 

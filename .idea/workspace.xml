@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f505050a-c31c-45c8-a03c-99eddf70aed4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ChatServer.py" afterPath="$PROJECT_DIR$/ChatServer.py" />
       <change beforePath="$PROJECT_DIR$/Client.py" afterPath="$PROJECT_DIR$/Client.py" />
     </list>
@@ -25,30 +24,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ChatServer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChatServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ChatServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+            <state relative-caret-position="-372">
+              <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-                <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-                <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-                <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-                <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-                <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-                <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+                <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+                <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+                <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+                <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+                <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+                <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+                <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3291">
-              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="12" />
+            <state relative-caret-position="300">
+              <caret line="183" column="65" lean-forward="true" selection-start-line="183" selection-start-column="65" selection-end-line="183" selection-end-column="65" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -103,8 +102,8 @@
         <option value="$PROJECT_DIR$/ThreadTest.py" />
         <option value="$PROJECT_DIR$/Client 1.py" />
         <option value="$PROJECT_DIR$/Client 2.py" />
-        <option value="$PROJECT_DIR$/ChatServer.py" />
         <option value="$PROJECT_DIR$/Client.py" />
+        <option value="$PROJECT_DIR$/ChatServer.py" />
       </list>
     </option>
   </component>
@@ -361,13 +360,13 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -378,13 +377,13 @@
           <caret line="49" column="6" lean-forward="false" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -397,13 +396,13 @@
           <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -416,13 +415,13 @@
           <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -435,13 +434,13 @@
           <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -472,13 +471,13 @@
           <caret line="46" column="61" lean-forward="true" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -489,13 +488,13 @@
           <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -508,13 +507,13 @@
           <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -540,29 +539,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChatServer.py">
+    <entry file="file://$PROJECT_DIR$/Client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="183" column="65" lean-forward="true" selection-start-line="183" selection-start-column="65" selection-end-line="183" selection-end-column="65" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524470986473" expanded="true" signature="6368:6412" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6898" ph="SELECT {0} F... " />
-            <marker date="1524470986473" expanded="true" signature="6868:6915" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6917" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="6868:6922" ph="SELECT sessi... log" />
-            <marker date="1524470986473" expanded="true" signature="8256:8300" ph="INSERT INTO log... " />
-            <marker date="1524470986473" expanded="true" signature="9959:10045" ph="CREATE TABLE... IF" />
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client.py">
+    <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3291">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="12" />
+        <state relative-caret-position="-372">
+          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1524471871592" expanded="true" signature="6418:6462" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7024" ph="SELECT {0} F... " />
+            <marker date="1524471871592" expanded="true" signature="6994:7041" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7043" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="6994:7048" ph="SELECT sessi... log" />
+            <marker date="1524471871592" expanded="true" signature="8470:8514" ph="INSERT INTO log... " />
+            <marker date="1524471871592" expanded="true" signature="10209:10295" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>

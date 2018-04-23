@@ -18,7 +18,7 @@ servReqMutex2 = Lock()
 # Release whenever Log off happens
 newChatMutex = Lock()
 receivedLogOff = False
-historyReqID = None
+historyReqID = None # Global variable, used when history is requested to find id of requested chat
 
 def connectToServer():
     global client, msg
@@ -151,7 +151,7 @@ if __name__ == '__main__':
         while connectToServer() != True:
             clientID = input('Please enter a valid clientID: ')
 
-        command = input('Would you like to send a chat request? (yes or no): ')
+        command = input('Would you like to send a chat request? (yes or no YOU CAN TYPE "History 2" TO TEST HISTORY RIGHT NOW): ')
 
         # Now that we're connected, we start listening for CHAT_REQUESTs or CHAT_STARTEDs
         protocolListenThread = threading.Thread(target=protocolListen, args=(client,))
@@ -181,7 +181,7 @@ if __name__ == '__main__':
                 servReqMutex2.release()
         elif(command.capitalize() == 'No'):
             print('Awaiting chat request from another client')
-        elif 'History' in command.capitalize():
+        elif 'History' in command.capitalize(): # Move this later
             historyReqID = command.split()[1]
             client.send('HISTORY_REQ ({0})'.format(historyReqID))
 
