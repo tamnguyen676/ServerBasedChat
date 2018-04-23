@@ -1,6 +1,7 @@
 import socket
 import threading
 import sqlite3
+import time
 
 # Object which represents a server
 class ChatServer:
@@ -36,7 +37,10 @@ class ChatServer:
     # Receive something from a client index and returns as bytes
     # Assumes client exists
     def receive(self, clientSocket):
-        return clientSocket.recv(2048).decode()
+        try:
+            return clientSocket.recv(2048).decode()
+        except ConnectionResetError:
+            print('Connection from client {0} closed unexpectedly.'.format(getClientIdFromSocket(clientSocket)))
 
 # This function is run in a new thread
 # It handles all connection requests from clients
@@ -155,8 +159,7 @@ def connection(server,clientSocket):
             sendingID = record[0] # The source of the message
             message = record[1] # The contents of the message
             server.send('HISTORY_RESP ({0},{1})'.format(sendingID,message),clientSocket)
-
-
+            time.sleep(.05)  # I don't know why, but if you delete this, things will break
     else:
         #This code runs if this connection is the chat requestee
         #for testing
@@ -221,6 +224,11 @@ def getSessionID(ses1,ses2):
         return str(ses1) + 'to' + str(ses2)
 
     return str(ses2) + 'to' + str(ses1)
+
+def getClientIdFromSocket(clientSocket):
+    for id,socket in server.onlineSockets.items():
+        if socket == clientSocket:
+            return id
 
 # Main function, it starts the thread that receives messages, then blocks with the acceptConnection() method
 if __name__ == '__main__':

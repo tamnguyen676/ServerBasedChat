@@ -65,6 +65,7 @@ def protocolListen(client):
             sessionID = getSessionID(clientID, historyReqID)
             message = protocolMessage.split(',')[1][:-1]
             print('<{0}> <from: {1}> <{2}>'.format(sessionID,sendingID,message))
+            servReqMutex.release()
 
 
         #This is here to make sure this thread doesn't immediately acquire serReqMutex
@@ -169,7 +170,7 @@ if __name__ == '__main__':
                 servReqMutex2.acquire()
                 #for testing
                 #print('acquire 2 in main')
-                servReqMutex.acquire() # Waits for protocolListen to recieve confirmation that chat session has begun
+                servReqMutex.acquire() # Waits for protocolListen to receive confirmation that chat session has begun
                 servReqMutex.release()
 
                 if chatMode:
