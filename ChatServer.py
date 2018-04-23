@@ -1,9 +1,9 @@
 import socket
 import threading
+import sqlite3
 
 # Object which represents a server
 class ChatServer:
-
     def __init__(self):
         self.welcomingPort = 8888
         # These are the sockets that will be regulated to clients
@@ -64,7 +64,7 @@ def connection(server,clientSocket):
     msg = server.receive(clientSocket)
 
     if msg.split()[0] == 'CHAT_REQUEST':
-        destID = msg.split()[1] # Stores id of Client B
+        destID = msg.split("(")[1][:-1] # Stores id of Client B
 
         #Will reject chat request if the destination is involved in another session
         inAnotherSession = True
@@ -103,8 +103,8 @@ def connection(server,clientSocket):
         #UPDATE: Changes parenthesis to spaces
         # For ease of implementation, we will assume that CHAT_REQUEST will always result in a chat session
         # Start chat once both clients have been confirmed to be online
-        server.send('CHAT_STARTED {0} {1}'.format(getSessionID(clientID, destID), destID), clientSocket)
-        server.send('CHAT_STARTED {0} {1}'.format(getSessionID(clientID, destID), clientID), destSocket)
+        server.send('CHAT_STARTED ({0},{1})'.format(getSessionID(clientID, destID), destID), clientSocket)
+        server.send('CHAT_STARTED ({0},{1})'.format(getSessionID(clientID, destID), clientID), destSocket)
         # Create a new entry in onlineSessions
         server.onlineSessions[getSessionID(clientID, destID)] = 'Active'
         print('Client {0} initiated chat with client {1}'.format(clientID,destID))
@@ -120,28 +120,45 @@ def connection(server,clientSocket):
         #This thread handles sending this connection's outgoing messages
         while True:
             msgFromA = server.receive(clientSocket)
-            #for testing
-            print('Waiting for A')
-            print(msgFromA)
-            if msgFromA != "END_REQUEST" and msgFromA != "":
-                server.send(msgFromA, destSocket)
-            #Handle shutting down session here
-            else:
+
+            if "CHAT" in msgFromA:
+                msgFromA = msgFromA.split(',')[1][:-1] # CHAT (sessionID,This is the message)
+            elif "END_REQUEST" in msgFromA:
                 print("a sent end notif")
                 server.onlineSessions[getSessionID(clientID, destID)] = None
                 server.onlineSockets[clientID] = None
                 server.onlineSockets[destID] = None
-                server.send("END_NOTIF", clientSocket)
-                server.send("END_NOTIF NOT_LOG_OFF", destSocket)
+                server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), clientSocket)
+                server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), destSocket)
                 break
+
+            #for testing
+            print('Waiting for A')
+            print(msgFromA)
+            if msgFromA != "":
+                sqlCommand = "INSERT INTO log VALUES (\"{0}\",{1},\"{2}\")".format(getSessionID(clientID,destID),clientID,
+                                                                           msgFromA)
+                cursor.execute(sqlCommand)
+                db.commit()
+                server.send(msgFromA, destSocket)
+            #Handle shutting down session here
+    elif msg.split()[0] == "HISTORY_REQ":
+        destID = msg.split("(")[1][:-1]
+        sessionID = getSessionID(clientID,destID)
+        sqlCommand = 'SELECT source,message FROM log WHERE sessionID=\'{0}\''.format(sessionID)
+        cursor.execute(sqlCommand)
+        log = cursor.fetchall()
+
+        for record in log:
+            sendingID = record[0]
+            message = record[1]
+            server.send('HISTORY_RESP ({0},{1})'.format(sendingID,message),clientSocket)
+
+
     else:
         #This code runs if this connection is the chat requestee
         #for testing
         print('This is the chat_started thread')
-
-    
-        
-
 
 
 #This thread will forward incoming messages to the connection
@@ -154,12 +171,11 @@ def b_to_a_forwarding(clientID,destID):
     while True:
         #for testing
         print('Waiting for B')
-        msgFromB = server.receive(destSocket)
-        print(msgFromB)
+        msgFromB = server.receive(destSocket).split(',')[1][:-1]
 
-        if msgFromB != "END_REQUEST" and msgFromB != "":
-            server.send(msgFromB, clientSocket)
-        else:
+        if "CHAT" in msgFromB:
+            msgFromB = msgFromB.split(',')[1][:-1]
+        elif "END_REQUEST" in msgFromB:
             print("b sent end notif")
             server.onlineSessions[getSessionID(clientID, destID)] = None
             server.onlineSockets[clientID] = None
@@ -167,6 +183,16 @@ def b_to_a_forwarding(clientID,destID):
             server.send("END_NOTIF NOT_LOG_OFF", clientSocket)
             server.send("END_NOTIF", destSocket)
             break
+
+        print(msgFromB)
+
+        if msgFromB != "":
+            sqlCommand = "INSERT INTO log VALUES (\"{0}\",{1},\"{2}\")".format(getSessionID(clientID, destID), destID,
+                                                                       msgFromB)
+            cursor.execute(sqlCommand)
+            db.commit()
+            server.send(msgFromB, clientSocket)
+
 
 # Processes and returns the client ID if valid
 # Returns a negative number if the client ID is invalid
@@ -196,6 +222,16 @@ def getSessionID(ses1,ses2):
 
 # Main function, it starts the thread that receives messages, then blocks with the acceptConnection() method
 if __name__ == '__main__':
+    db = sqlite3.connect("chatHistory.db",check_same_thread=False)
+    cursor = db.cursor()
+
+    createTable = """CREATE TABLE IF NOT EXISTS log (
+    sessionID text,
+    source int,
+    message text);"""
+
+    cursor.execute(createTable)
+
     print("Running Server...")
     server = ChatServer()
     while True:
