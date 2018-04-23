@@ -176,7 +176,10 @@ def b_to_a_forwarding(clientID,destID):
     while True:
         #for testing
         print('Waiting for B')
-        msgFromB = server.receive(destSocket).split(',')[1][:-1]
+        try:
+            msgFromB = server.receive(destSocket).split(',')[1][:-1]
+        except IndexError:
+            break
 
         if "CHAT" in msgFromB:
             msgFromB = msgFromB.split(',')[1][:-1]

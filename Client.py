@@ -46,11 +46,15 @@ def protocolListen(client):
 
         if 'CHAT_STARTED' in protocolMessage:
             chatMode = True
+
             sessionID = protocolMessage.split()[1].split(',')[0][1:]
             destID = protocolMessage.split(',')[1][:-1]
+
             servReqMutex.release()
+
             #Echo the CHAT_STARTED message
             client.send(protocolMessage)
+
             enterChatMode(client, destID, sessionID)
             #print('In chat started protocol')
             #should only stop listening once we receive CHAT_STARTED
@@ -100,14 +104,17 @@ def messageListen(client,destID):
 
 def enterChatMode(client,destID,sessionID):
     global chatMode, receivedLogOff
-    print('we in chatMode bois')
+
+    print('', end='\r')
+    sys.stdout.flush()
+
     messageListenThread = threading.Thread(target=messageListen,args=(client,destID))
     messageListenThread.start()
-    print('\nChat started with client {0}. Type "Log Off" to end.'.format(destID))
+    print('\nChat started with client {0}. Type "End Chat" to end.'.format(destID))
     while chatMode:
         messageToSend = input('Client {0}: '.format(clientID))
 
-        if messageToSend.capitalize().strip() == 'Log Off'.capitalize().strip():
+        if messageToSend.lower().strip() == 'end chat'.lower().strip():
             client.send("END_REQUEST ({0})".format(sessionID))
             chatMode = False
             break
@@ -125,21 +132,18 @@ def getSessionID(ses1,ses2):
 
 # TODO: figure out how to make this run multiple times
 if __name__ == '__main__':
-
     while True:
-        #for testing
-        print("new loop can log in again")
         newChatMutex.acquire()
         #This will help enterChatMode thread exit when we receive a log off notification
-        if receivedLogOff:
+        if receivedLogOff:  # Might need to rename
             print('Press enter to continue...')
 
         # This block waits for the log on command
         # Should enter 'Log on [clientID]
-        command = input('Enter command like \"Log on [clientID]\": ')
+        command = input('Enter command (\"Log on [clientID]\"): ')
 
         #Check if 'Log on' was entered
-        while 'Log on' not in command.capitalize() or len(command.split()) != 3:
+        while 'log on' not in command.lower() or len(command.split()) != 3:
             command = input('You must enter Log on [Client ID] to continue: ')
 
         # Assumes clientID will be an int
@@ -152,37 +156,47 @@ if __name__ == '__main__':
         while connectToServer() != True:
             clientID = input('Please enter a valid clientID: ')
 
-        command = input('Would you like to send a chat request? (yes or no YOU CAN TYPE "History 2" TO TEST HISTORY RIGHT NOW): ')
-
         # Now that we're connected, we start listening for CHAT_REQUESTs or CHAT_STARTEDs
         protocolListenThread = threading.Thread(target=protocolListen, args=(client,))
         protocolListenThread.start()
 
-        if(command.capitalize() == 'Yes'):
-            # Only loop this while chatMode is not activated
-            # Waiting for chat initiation or request to chat from protocolListenThread
-            while True:
-                command = input('Enter chat request: ')
-                destID = command.split()[1]
-                #Let user know we are waiting on chat request response
-                client.send('CHAT_REQUEST ({0})'.format(destID))
+        command = input('Please enter a command: ')
 
-                servReqMutex2.acquire()
-                #for testing
-                #print('acquire 2 in main')
-                servReqMutex.acquire() # Waits for protocolListen to receive confirmation that chat session has begun
-                servReqMutex.release()
+        # The "command" was actually supposed to be a message if we are in chat mode. Send it as such
+        if chatMode:
+            messageToSend = command
+            sessionID = getSessionID(clientID, destID)   # destID should be set globally when chatMode was entered
+            if messageToSend.lower().strip() == ''.lower().strip():
+                client.send("END_REQUEST ({0})".format(sessionID))
+                chatMode = False
+            elif receivedLogOff:
+                receivedLogOff = False
+            client.send('CHAT ({0},{1})'.format(sessionID, messageToSend))
+            print('Client {0}: '.format(clientID))
 
-                if chatMode:
+        else:
+            if "chat" in command.lower():
+                # Only loop this while chatMode is not activated
+                # Waiting for chat initiation or request to chat from protocolListenThread
+                while True:
+                    destID = command.split()[1]
+                    #Let user know we are waiting on chat request response
+                    client.send('CHAT_REQUEST ({0})'.format(destID))
+
+                    servReqMutex2.acquire()
+                    #for testing
+                    #print('acquire 2 in main')
+                    servReqMutex.acquire() # Waits for protocolListen to receive confirmation that chat session has begun
+                    servReqMutex.release()
+
+                    if chatMode:
+                        break
+
+                    # If you get here then the Client is unreachable
+                    print('client {0} unreachable'.format(command.split()[1]))
+                    servReqMutex2.release()
                     break
-
-                # If you get here then the Client is unreachable
-                print('client {0} unreachable'.format(command.split()[1]))
-                
-                servReqMutex2.release()
-        elif(command.capitalize() == 'No'):
-            print('Awaiting chat request from another client')
-        elif 'History' in command.capitalize(): # Move this later
-            historyReqID = command.split()[1]
-            client.send('HISTORY_REQ ({0})'.format(historyReqID))
+            elif 'history' in command.lower(): # Move this later
+                historyReqID = command.split()[1]
+                client.send('HISTORY_REQ ({0})'.format(historyReqID))
 
