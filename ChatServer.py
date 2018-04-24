@@ -15,7 +15,8 @@ class ChatServer:
         # in connection() if we want to adjust the clientIDs
         # This line as well: for x in range(1,6)
         # A lot of other lines..... It's probably best if we don't change this
-        self.onlineSockets = {'1':None, '2':None, '3':None, '4':None, '5':None}
+        self.onlineSockets = {'1':None, '2':None, '3':None, '4':None, '5':None,
+                              '6':None, '7':None, '8':None, '9':None, '10':None}
         # Initialize dictionary of online sessions to a nonexistent session
         self.onlineSessions = {'-99to-98':None}
         self.listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -56,7 +57,7 @@ def connection(server,clientSocket):
     print('hello for client' + str(clientID))
 
     # We break and end this thread if the client requests an invalid connection
-    if int(clientID) < 1 or int(clientID) > 5:
+    if clientID not in server.onlineSockets.keys():
         #Reject this connection if an invalid clientID is used
         return
 
