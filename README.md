@@ -37,8 +37,7 @@ For each client, run a Client.py script
 
 For each Client script:
 1) Enter log on [CLIENT_ID]
-2) Indicate whether you would like to send a chat request or receive a chat request by entering: "yes" or "no"
-3) If you would like to send a chat request enter chat [client ID of the person you want to chat with]
-4) Once you enter chat, chat away!
-5) When you're done enter Log off
-6) You can then log back on and proceed from step 2
+2) If you would like to send a chat request enter "chat [client ID of the person you want to chat with]" *OR* enter "history [client ID of self to client chat history you would like to see]
+3) Once you enter chat, chat away!
+4) When you're done enter "End Chat"
+5) You can then log back on and proceed from step 2
