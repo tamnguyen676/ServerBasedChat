@@ -63,7 +63,7 @@ def protocolListen(client):
             #should only stop listening once we receive CHAT_STARTED
         elif 'UNREACHABLE' in protocolMessage:
             #for testing
-            print('Client {0} is either offline or in another chat session.'.format(protocolMessage.split('(')[1][:-1]))
+            print('Correspondent unreachable')
             servReqMutex.release()
         elif 'HISTORY_RESP' in protocolMessage:
             global historyReqID
@@ -211,7 +211,7 @@ if __name__ == '__main__':
                             break
 
                         # If you get here then the Client is unreachable
-                        print('Client {0} unreachable'.format(command.split()[1]))
+
                         servReqMutex2.release()
                         break
                 elif 'history' in command.lower(): # Move this later

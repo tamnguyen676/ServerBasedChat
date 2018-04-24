@@ -94,7 +94,7 @@ def connection(server,clientSocket):
                 print('Client {0} is not connected or is in another chat session.'.format(destID))
                 print('Waiting for connection request with an available client')
                 msg = server.receive(clientSocket)
-                destID = msg.split()[1]
+                destID = destID = msg.split("(")[1][:-1]
 
             #You can't request to chat yourself
             while destID == clientID:
@@ -102,7 +102,7 @@ def connection(server,clientSocket):
                 #for tseting
                 print('Quit trying to chat with yourself')
                 msg = server.receive(clientSocket)
-                destID = msg.split()[1]
+                destID = destID = msg.split("(")[1][:-1]
 
 
             destSocket = server.onlineSockets[destID]
