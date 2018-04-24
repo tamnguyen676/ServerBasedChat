@@ -17,8 +17,9 @@ servReqMutex2 = Lock()
 # Client must wait for chat to end for new Log on to commence
 # Release whenever Log off happens
 newChatMutex = Lock()
-receivedLogOff = False
+receivedEndChat = None   # if this is false, it means that this client typed log off. If true, it means the other client logged off
 historyReqID = None # Global variable, used when history is requested to find id of requested chat
+
 
 def connectToServer():
     global client, msg
@@ -41,8 +42,10 @@ def protocolListen(client):
     while True:
         servReqMutex.acquire() #Ensures that client must wait for server response before starting chat
         #for testing
-        #print('acquire in protocolListen')
-        protocolMessage = client.receive()
+        try:
+            protocolMessage = client.receive()
+        except ConnectionAbortedError:  # If the ocnnection no longer exists, break out of the loop and end thread
+            break
 
         if 'CHAT_STARTED' in protocolMessage:
             chatMode = True
@@ -58,10 +61,9 @@ def protocolListen(client):
             enterChatMode(client, destID, sessionID)
             #print('In chat started protocol')
             #should only stop listening once we receive CHAT_STARTED
-            break
         elif 'UNREACHABLE' in protocolMessage:
             #for testing
-            print('we unreachable bois')
+            print('Client {0} is either offline or in another chat session.'.format(protocolMessage.split('(')[1][:-1]))
             servReqMutex.release()
         elif 'HISTORY_RESP' in protocolMessage:
             global historyReqID
@@ -81,7 +83,7 @@ def protocolListen(client):
 
 #Prints out incoming messages
 def messageListen(client,destID):
-    global receivedLogOff
+    global receivedEndChat, chatMode
     while True:
         receivedMessage = client.receive()
 
@@ -93,33 +95,40 @@ def messageListen(client,destID):
             sys.stdout.flush()
         #End the 
         elif "END_NOTIF" in receivedMessage.split()[0]:
-            print("", end="\r")
-            print("Chat Ended")
-            # We will receive this argument if 
-            if len(receivedMessage.split()) == 2 and receivedMessage.split()[1] == "NOT_LOG_OFF":
-                receivedLogOff = True
-            client.close()
+            #print("", end="\r")
+            print("\nChat Ended")
+            chatMode = False
+
+            if receivedEndChat or receivedEndChat == None:
+                print('Please press enter twice to continue')
+                receivedEndChat = True
+
+
             newChatMutex.release()
             break
 
 def enterChatMode(client,destID,sessionID):
-    global chatMode, receivedLogOff
+    global chatMode, receivedEndChat
 
     print('', end='\r')
     sys.stdout.flush()
 
-    messageListenThread = threading.Thread(target=messageListen,args=(client,destID))
+    messageListenThread = threading.Thread(target=messageListen, args=(client,destID))
     messageListenThread.start()
+
     print('\nChat started with client {0}. Type "End Chat" to end.'.format(destID))
     while chatMode:
         messageToSend = input('Client {0}: '.format(clientID))
 
+        if receivedEndChat == True:
+            newChatMutex.release()
+            receivedEndChat = False
+            break
+
         if messageToSend.lower().strip() == 'end chat'.lower().strip():
             client.send("END_REQUEST ({0})".format(sessionID))
             chatMode = False
-            break
-        elif receivedLogOff:
-            receivedLogOff = False
+            receivedEndChat = False  # This client caused the chat to end
             break
 
         client.send('CHAT ({0},{1})'.format(sessionID,messageToSend))
@@ -135,7 +144,7 @@ if __name__ == '__main__':
     while True:
         newChatMutex.acquire()
         #This will help enterChatMode thread exit when we receive a log off notification
-        if receivedLogOff:  # Might need to rename
+        if receivedEndChat:  # Might need to rename
             print('Press enter to continue...')
 
         # This block waits for the log on command
@@ -160,43 +169,62 @@ if __name__ == '__main__':
         protocolListenThread = threading.Thread(target=protocolListen, args=(client,))
         protocolListenThread.start()
 
-        command = input('Please enter a command: ')
+        newChatMutex.release()  # Temporarily releases lock so it can be acquired in the next command
+        while True:
+            newChatMutex.acquire()
 
-        # The "command" was actually supposed to be a message if we are in chat mode. Send it as such
-        if chatMode:
-            messageToSend = command
-            sessionID = getSessionID(clientID, destID)   # destID should be set globally when chatMode was entered
-            if messageToSend.lower().strip() == ''.lower().strip():
-                client.send("END_REQUEST ({0})".format(sessionID))
-                chatMode = False
-            elif receivedLogOff:
-                receivedLogOff = False
-            client.send('CHAT ({0},{1})'.format(sessionID, messageToSend))
-            print('Client {0}: '.format(clientID))
+            command = input('Please enter a command: ')
 
-        else:
-            if "chat" in command.lower():
-                # Only loop this while chatMode is not activated
-                # Waiting for chat initiation or request to chat from protocolListenThread
-                while True:
-                    destID = command.split()[1]
-                    #Let user know we are waiting on chat request response
-                    client.send('CHAT_REQUEST ({0})'.format(destID))
+            if receivedEndChat:
+                print('Please press enter one more time.')
+                newChatMutex.acquire()
+                newChatMutex.acquire()  # I am not sure why I need to acquire twice, but it works
 
-                    servReqMutex2.acquire()
-                    #for testing
-                    #print('acquire 2 in main')
-                    servReqMutex.acquire() # Waits for protocolListen to receive confirmation that chat session has begun
-                    servReqMutex.release()
+            # The "command" was actually supposed to be a message if we are in chat mode. Send it as such
+            if chatMode:
+                messageToSend = command
+                sessionID = getSessionID(clientID, destID)   # destID should be set globally when chatMode was entered
+                if messageToSend.lower().strip() == 'end chat'.lower().strip():
+                    client.send("END_REQUEST ({0})".format(sessionID))
+                    chatMode = False
+                    newChatMutex.release()
+                    receivedEndChat = False # This client caused the chat to end
+                    continue
+                client.send('CHAT ({0},{1})'.format(sessionID, messageToSend))
+                print('Client {0}: '.format(clientID))
+            else:
+                if "chat" in command.lower():
+                    # Only loop this while chatMode is not activated
+                    # Waiting for chat initiation or request to chat from protocolListenThread
+                    while True:
+                        destID = command.split()[1]
+                        #Let user know we are waiting on chat request response
+                        client.send('CHAT_REQUEST ({0})'.format(destID))
 
-                    if chatMode:
+                        servReqMutex2.acquire()
+                        #for testing
+                        #print('acquire 2 in main')
+                        servReqMutex.acquire() # Waits for protocolListen to receive confirmation that chat session has begun
+                        servReqMutex.release()
+
+                        if chatMode:
+                            break
+
+                        # If you get here then the Client is unreachable
+                        print('Client {0} unreachable'.format(command.split()[1]))
+                        servReqMutex2.release()
                         break
+                elif 'history' in command.lower(): # Move this later
+                    historyReqID = command.split()[1]
+                    client.send('HISTORY_REQ ({0})'.format(historyReqID))
+                    if servReqMutex2.locked():
+                        servReqMutex2.release()
+                elif command.lower() == 'log off':
+                    if newChatMutex.locked():
+                        newChatMutex.release()
 
-                    # If you get here then the Client is unreachable
-                    print('client {0} unreachable'.format(command.split()[1]))
-                    servReqMutex2.release()
+                    client.close()
+
                     break
-            elif 'history' in command.lower(): # Move this later
-                historyReqID = command.split()[1]
-                client.send('HISTORY_REQ ({0})'.format(historyReqID))
-
+                if not chatMode and newChatMutex.locked():
+                    newChatMutex.release()

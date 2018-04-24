@@ -40,7 +40,8 @@ class ChatServer:
         try:
             return clientSocket.recv(2048).decode()
         except ConnectionResetError:
-            print('Connection from client {0} closed unexpectedly.'.format(getClientIdFromSocket(clientSocket)))
+            print('Connection from client {0} has closed.'.format(getClientIdFromSocket(clientSocket)))
+            self.onlineSockets[getClientIdFromSocket(clientSocket)] = None
 
 # This function is run in a new thread
 # It handles all connection requests from clients
@@ -67,103 +68,104 @@ def connection(server,clientSocket):
 
     msg = server.receive(clientSocket)
 
-    if msg.split()[0] == 'CHAT_REQUEST':
-        destID = msg.split("(")[1][:-1] # Stores id of Client B
+    if msg != None:
+        if msg.split()[0] == 'CHAT_REQUEST':
+            destID = msg.split("(")[1][:-1] # Stores id of Client B
 
-        #Will reject chat request if the destination is involved in another session
-        inAnotherSession = True
-        while inAnotherSession:
-            inAnotherSession = False
-            for x in server.onlineSessions:
-                #Checks if destination is in onlineSessions and if the session is Active
-                if str(destID) in x and server.onlineSessions[x] == 'Active':
-                    inAnotherSession = True
-                    server.send('UNREACHABLE {0}'.format(destID), clientSocket)
-                    #for testing
-                    print('destID in another session')
-                    msg = server.receive(clientSocket)
-                    destID = msg.split()[1]
-        #for testing
-        print('The destination is not in another session')
-
-        #Will loop until a valid chat request is given
-        while destID in server.onlineSockets.keys() and server.onlineSockets[destID] is None:
-            server.send('UNREACHABLE {0}'.format(destID), clientSocket)
-            print('Client {0} is not connected or is in another chat session.'.format(destID))
-            print('Waiting for connection request with an available client')
-            msg = server.receive(clientSocket)
-            destID = msg.split()[1]
-
-        #You can't request to chat yourself
-        while destID == clientID:
-            server.send('UNREACHABLE {0}'.format(destID), clientSocket)
-            #for tseting
-            print('Quit trying to chat with yourself')
-            msg = server.receive(clientSocket)
-            destID = msg.split()[1]
-
-
-        destSocket = server.onlineSockets[destID]
-        #UPDATE: Changes parenthesis to spaces
-        # For ease of implementation, we will assume that CHAT_REQUEST will always result in a chat session
-        # Start chat once both clients have been confirmed to be online
-        server.send('CHAT_STARTED ({0},{1})'.format(getSessionID(clientID, destID), destID), clientSocket)
-        server.send('CHAT_STARTED ({0},{1})'.format(getSessionID(clientID, destID), clientID), destSocket)
-        # Create a new entry in onlineSessions
-        server.onlineSessions[getSessionID(clientID, destID)] = 'Active'
-        print('Client {0} initiated chat with client {1}'.format(clientID,destID))
-
-        # This thread handles transferring this thread's incoming messages
-        b_to_a_forwarding_thread = threading.Thread(target=b_to_a_forwarding,
-                                                    args=(clientID, destID))
-        b_to_a_forwarding_thread.start()
-
-        #This consumes the chat_started thing
-        server.receive(clientSocket)
-
-        #This thread handles sending this connection's outgoing messages
-        while True:
-            msgFromA = server.receive(clientSocket)
-
-            if "CHAT" in msgFromA:
-                msgFromA = msgFromA.split(',')[1][:-1] # CHAT (sessionID,This is the message)
-            elif "END_REQUEST" in msgFromA:
-                print("a sent end notif")
-                server.onlineSessions[getSessionID(clientID, destID)] = None
-                server.onlineSockets[clientID] = None
-                server.onlineSockets[destID] = None
-                server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), clientSocket)
-                server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), destSocket)
-                break
-
+            #Will reject chat request if the destination is involved in another session
+            inAnotherSession = True
+            while inAnotherSession:
+                inAnotherSession = False
+                for x in server.onlineSessions:
+                    #Checks if destination is in onlineSessions and if the session is Active
+                    if str(destID) in x and server.onlineSessions[x] == 'Active':
+                        inAnotherSession = True
+                        server.send('UNREACHABLE {0}'.format(destID), clientSocket)
+                        #for testing
+                        print('destID in another session')
+                        msg = server.receive(clientSocket)
+                        destID = msg.split()[1]
             #for testing
-            print('Waiting for A')
-            print(msgFromA)
-            if msgFromA != "":
-                # Log the messages before sending
-                sqlCommand = "INSERT INTO log VALUES (\"{0}\",{1},\"{2}\")".format(getSessionID(clientID,destID),clientID,
-                                                                           msgFromA)
-                cursor.execute(sqlCommand)
-                db.commit()
+            print('The destination is not in another session')
 
-                server.send(msgFromA, destSocket)
-            #Handle shutting down session here
-    elif msg.split()[0] == "HISTORY_REQ":
-        destID = msg.split("(")[1][:-1] # The ID of the chat you want to see a history of
-        sessionID = getSessionID(clientID,destID) # Session ID of the chat
-        sqlCommand = 'SELECT source,message FROM log WHERE sessionID=\'{0}\''.format(sessionID)
-        cursor.execute(sqlCommand)
-        log = cursor.fetchall() #Contains a list of chat info
+            #Will loop until a valid chat request is given
+            while destID in server.onlineSockets.keys() and server.onlineSockets[destID] is None:
+                server.send('UNREACHABLE {0}'.format(destID), clientSocket)
+                print('Client {0} is not connected or is in another chat session.'.format(destID))
+                print('Waiting for connection request with an available client')
+                msg = server.receive(clientSocket)
+                destID = msg.split()[1]
 
-        for record in log:
-            sendingID = record[0] # The source of the message
-            message = record[1] # The contents of the message
-            server.send('HISTORY_RESP ({0},{1})'.format(sendingID,message),clientSocket)
-            time.sleep(.05)  # I don't know why, but if you delete this, things will break
-    else:
-        #This code runs if this connection is the chat requestee
-        #for testing
-        print('This is the chat_started thread')
+            #You can't request to chat yourself
+            while destID == clientID:
+                server.send('UNREACHABLE {0}'.format(destID), clientSocket)
+                #for tseting
+                print('Quit trying to chat with yourself')
+                msg = server.receive(clientSocket)
+                destID = msg.split()[1]
+
+
+            destSocket = server.onlineSockets[destID]
+            #UPDATE: Changes parenthesis to spaces
+            # For ease of implementation, we will assume that CHAT_REQUEST will always result in a chat session
+            # Start chat once both clients have been confirmed to be online
+            server.send('CHAT_STARTED ({0},{1})'.format(getSessionID(clientID, destID), destID), clientSocket)
+            server.send('CHAT_STARTED ({0},{1})'.format(getSessionID(clientID, destID), clientID), destSocket)
+            # Create a new entry in onlineSessions
+            server.onlineSessions[getSessionID(clientID, destID)] = 'Active'
+            print('Client {0} initiated chat with client {1}'.format(clientID,destID))
+
+            # This thread handles transferring this thread's incoming messages
+            b_to_a_forwarding_thread = threading.Thread(target=b_to_a_forwarding,
+                                                        args=(clientID, destID))
+            b_to_a_forwarding_thread.start()
+
+            #This consumes the chat_started thing
+            server.receive(clientSocket)
+
+            #This thread handles sending this connection's outgoing messages
+            while True:
+                msgFromA = server.receive(clientSocket)
+
+                if "CHAT" in msgFromA:
+                    msgFromA = msgFromA.split(',')[1][:-1] # CHAT (sessionID,This is the message)
+                elif "END_REQUEST" in msgFromA:
+                    print("a sent end notif")
+                    server.onlineSessions[getSessionID(clientID, destID)] = None
+                    server.onlineSockets[clientID] = None
+                    server.onlineSockets[destID] = None
+                    server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), clientSocket)
+                    server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), destSocket)
+                    break
+
+                #for testing
+                print('Waiting for A')
+                print(msgFromA)
+                if msgFromA != "":
+                    # Log the messages before sending
+                    sqlCommand = "INSERT INTO log VALUES (\"{0}\",{1},\"{2}\")".format(getSessionID(clientID,destID),clientID,
+                                                                               msgFromA)
+                    cursor.execute(sqlCommand)
+                    db.commit()
+
+                    server.send(msgFromA, destSocket)
+                #Handle shutting down session here
+        elif msg.split()[0] == "HISTORY_REQ":
+            destID = msg.split("(")[1][:-1] # The ID of the chat you want to see a history of
+            sessionID = getSessionID(clientID,destID) # Session ID of the chat
+            sqlCommand = 'SELECT source,message FROM log WHERE sessionID=\'{0}\''.format(sessionID)
+            cursor.execute(sqlCommand)
+            log = cursor.fetchall() #Contains a list of chat info
+
+            for record in log:
+                sendingID = record[0] # The source of the message
+                message = record[1] # The contents of the message
+                server.send('HISTORY_RESP ({0},{1})'.format(sendingID,message),clientSocket)
+                time.sleep(.05)  # I don't know why, but if you delete this, things will break
+        else:
+            #This code runs if this connection is the chat requestee
+            #for testing
+            print('This is the chat_started thread')
 
 
 #This thread will forward incoming messages to the connection
@@ -188,8 +190,8 @@ def b_to_a_forwarding(clientID,destID):
             server.onlineSessions[getSessionID(clientID, destID)] = None
             server.onlineSockets[clientID] = None
             server.onlineSockets[destID] = None
-            server.send("END_NOTIF NOT_LOG_OFF", clientSocket)
-            server.send("END_NOTIF", destSocket)
+            server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), clientSocket)
+            server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), destSocket)
             break
 
         print(msgFromB)
