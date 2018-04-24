@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f505050a-c31c-45c8-a03c-99eddf70aed4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ChatServer.py" afterPath="$PROJECT_DIR$/ChatServer.py" />
-      <change beforePath="$PROJECT_DIR$/Client.py" afterPath="$PROJECT_DIR$/Client.py" />
-      <change beforePath="$PROJECT_DIR$/chatHistory.db" afterPath="$PROJECT_DIR$/chatHistory.db" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatHistory.db" beforeDir="false" afterPath="$PROJECT_DIR$/chatHistory.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,31 +14,24 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ServerBasedChat$ThreadTest.coverage" NAME="ThreadTest Coverage Results" MODIFIED="1523471603038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ServerBasedChat$ClientB.coverage" NAME="ClientB Coverage Results" MODIFIED="1523227880409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ServerBasedChat$ChatServer.coverage" NAME="ChatServer Coverage Results" MODIFIED="1524529339605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ServerBasedChat$Client_2.coverage" NAME="Client 2 Coverage Results" MODIFIED="1523476164432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ServerBasedChat$ClientA.coverage" NAME="ClientA Coverage Results" MODIFIED="1523227670571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ServerBasedChat$Client.coverage" NAME="Client Coverage Results" MODIFIED="1524529342744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ServerBasedChat$ChatClient.coverage" NAME="ChatClient Coverage Results" MODIFIED="1524451325002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ServerBasedChat$Client.coverage" NAME="Client Coverage Results" MODIFIED="1524537349586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ServerBasedChat$ThreadTest.coverage" NAME="ThreadTest Coverage Results" MODIFIED="1523471603038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ServerBasedChat$Client_1.coverage" NAME="Client 1 Coverage Results" MODIFIED="1523476162867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ServerBasedChat$ChatServer.coverage" NAME="ChatServer Coverage Results" MODIFIED="1524537346856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ServerBasedChat$ClientB.coverage" NAME="ClientB Coverage Results" MODIFIED="1523227880409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ServerBasedChat$Client_2.coverage" NAME="Client 2 Coverage Results" MODIFIED="1523476164432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+    <leaf>
       <file leaf-file-name="ChatServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ChatServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-447">
-              <caret line="43" column="74" lean-forward="false" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
+            <state relative-caret-position="171">
+              <caret line="179" column="45" selection-start-line="179" selection-start-column="45" selection-end-line="179" selection-end-column="45" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-                <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-                <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-                <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-                <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-                <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-                <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
               </folding>
             </state>
           </provider>
@@ -48,8 +40,8 @@
       <file leaf-file-name="Client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+            <state relative-caret-position="831">
+              <caret line="225" column="34" lean-forward="true" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -68,36 +60,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>END_REQUEST</find>
-      <find>flush</find>
-      <find>.capitalize()</find>
-      <find>lower()</find>
-      <find>end_request</find>
-      <find>enterChatMode</find>
-      <find>receivedLogoff</find>
-      <find>newChatMutex.release</find>
-      <find>b_to_a</find>
-      <find>chatMode = false</find>
-      <find>chat ended</find>
+      <find />
       <find>chatMode</find>
-      <find>chatMode = fa</find>
+      <find />
       <find>receivedLogOff</find>
       <find>end_notif</find>
       <find>NOT_LOG</find>
-      <find>end chat</find>
-      <find>unreachable</find>
       <find>newChatMutex.release()</find>
       <find>ervReqMutex.release()</find>
-      <find>servReqMutex2.release</find>
       <find>receivedEndCHat</find>
       <find>print</find>
-      <find>Please enter a command</find>
+      <find />
       <find>lock</find>
       <find>receivedEndChat</find>
       <find>mutex</find>
-      <find>log off</find>
+      <find />
       <find>end_NOTIF</find>
       <find>try</find>
+      <find>onlineSessions</find>
+      <find>UNREACHABLE</find>
+      <find>unreachable</find>
+      <find>Unreachable</find>
+      <find>unreachab</find>
+      <find />
+      <find />
+      <find>protocolListen</find>
+      <find>Chat</find>
+      <find>servReqMutex2.release</find>
+      <find>end</find>
+      <find />
+      <find />
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,29 +115,21 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="288" />
-    <option name="y" value="-16" />
+    <option name="x" value="466" />
+    <option name="y" value="-20" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,9 +153,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -185,8 +170,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ChatServer">
+  <component name="RunManager" selected="Python.Client">
     <configuration name="ChatClient" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ServerBasedChat" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -197,8 +183,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ServerBasedChat" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ChatClient.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -206,6 +191,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="ChatServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ServerBasedChat" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -216,8 +202,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ServerBasedChat" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ChatServer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -225,6 +210,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Client 1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ServerBasedChat" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -235,8 +221,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ServerBasedChat" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client 1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -244,6 +229,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Client 2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ServerBasedChat" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -254,8 +240,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ServerBasedChat" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client 2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -263,6 +248,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Client" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ServerBasedChat" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -273,33 +259,29 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ServerBasedChat" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.ChatServer" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ChatClient" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Client 1" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Client 2" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Client" />
+    <list>
+      <item itemvalue="Python.ChatServer" />
+      <item itemvalue="Python.ChatClient" />
+      <item itemvalue="Python.Client 1" />
+      <item itemvalue="Python.Client 2" />
+      <item itemvalue="Python.Client" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Client" />
-        <item index="1" class="java.lang.String" itemvalue="Python.ChatServer" />
-        <item index="2" class="java.lang.String" itemvalue="Python.ChatClient" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Client 2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Client 1" />
+      <list>
+        <item itemvalue="Python.Client" />
+        <item itemvalue="Python.ChatServer" />
+        <item itemvalue="Python.ChatClient" />
+        <item itemvalue="Python.Client 2" />
+        <item itemvalue="Python.Client 1" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -315,28 +297,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29723758" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3646409" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.2963776" />
+      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.14226191" />
+      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="1" />
+      <window_info anchor="right" id="SciView" order="0" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.35254988" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="5" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,24 +341,36 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="28" />
+      <option name="time" value="49" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3192">
-          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        <state relative-caret-position="680">
+          <caret line="43" column="74" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3672">
+          <caret line="221" selection-start-line="221" selection-end-line="221" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3192">
+          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -391,17 +387,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state>
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -409,16 +397,9 @@
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1029">
-          <caret line="49" column="6" lean-forward="false" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
+          <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -428,16 +409,9 @@
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
-          <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -447,16 +421,9 @@
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -466,34 +433,20 @@
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
-          <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
+          <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Client 1.py" />
     <entry file="file://$PROJECT_DIR$/Client 2.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="915" column="0" lean-forward="false" selection-start-line="915" selection-start-column="0" selection-end-line="915" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/threading.py" />
     <entry file="file://$PROJECT_DIR$/ChatClient.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
-          <caret line="15" column="85" lean-forward="false" selection-start-line="15" selection-start-column="85" selection-end-line="15" selection-end-column="85" />
+          <caret line="15" column="85" selection-start-line="15" selection-start-column="85" selection-end-line="15" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -506,13 +459,6 @@
           <caret line="46" column="61" lean-forward="true" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -520,16 +466,9 @@
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -539,16 +478,9 @@
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
-          <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
+          <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -558,34 +490,26 @@
     <entry file="file://$PROJECT_DIR$/ThreadTest.py" />
     <entry file="file://$PROJECT_DIR$/Client 1.py" />
     <entry file="file://$PROJECT_DIR$/Client 2.py" />
-    <entry file="file://$USER_HOME$/PycharmProjects/untitled/venv/Lib/codecs.py">
+    <entry file="file://$USER_HOME$/PycharmProjects/untitled/venv/Lib/codecs.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/threading.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="863" column="0" lean-forward="false" selection-start-line="863" selection-start-column="0" selection-end-line="863" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="328">
+          <caret line="879" column="50" lean-forward="true" selection-start-line="879" selection-start-column="50" selection-end-line="879" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ChatClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
+        <state relative-caret-position="153">
           <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        <state relative-caret-position="831">
+          <caret line="225" column="34" lean-forward="true" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
@@ -594,20 +518,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ChatServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-447">
-          <caret line="43" column="74" lean-forward="false" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
+        <state relative-caret-position="171">
+          <caret line="179" column="45" selection-start-line="179" selection-start-column="45" selection-end-line="179" selection-end-column="45" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1524529325007" expanded="true" signature="6943:6987" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7585" ph="SELECT {0} F... " />
-            <marker date="1524529325007" expanded="true" signature="7555:7602" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7604" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="7555:7609" ph="SELECT sessi... log" />
-            <marker date="1524529325007" expanded="true" signature="9304:9348" ph="INSERT INTO log... " />
-            <marker date="1524529325007" expanded="true" signature="11193:11279" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

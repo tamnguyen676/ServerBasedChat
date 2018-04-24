@@ -132,8 +132,6 @@ def connection(server,clientSocket):
                 elif "END_REQUEST" in msgFromA:
                     print("a sent end notif")
                     server.onlineSessions[getSessionID(clientID, destID)] = None
-                    server.onlineSockets[clientID] = None
-                    server.onlineSockets[destID] = None
                     server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), clientSocket)
                     server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), destSocket)
                     break
@@ -178,18 +176,14 @@ def b_to_a_forwarding(clientID,destID):
     while True:
         #for testing
         print('Waiting for B')
-        try:
-            msgFromB = server.receive(destSocket).split(',')[1][:-1]
-        except IndexError:
-            break
+
+        msgFromB = server.receive(destSocket)
 
         if "CHAT" in msgFromB:
             msgFromB = msgFromB.split(',')[1][:-1]
         elif "END_REQUEST" in msgFromB:
             print("b sent end notif")
             server.onlineSessions[getSessionID(clientID, destID)] = None
-            server.onlineSockets[clientID] = None
-            server.onlineSockets[destID] = None
             server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), clientSocket)
             server.send("END_NOTIF ({0})".format(getSessionID(clientID, destID)), destSocket)
             break
